@@ -11,3 +11,6 @@ services:
       - key: JWT_SECRET
         value: your_jwt_secret_here
         sync: false
+      - key: MONGO_URI
+        value: mongodb+srv://23211a6738_db_user:9Q0dUFlhCs2TupsH@cluster0.si13fqi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+        sync: false
