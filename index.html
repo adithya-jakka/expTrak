@@ -164,7 +164,7 @@ async function fetchExpenses() {
         if (!token) {
             throw new Error('User not authenticated');
         }
-        const response = await fetch('http://localhost:5000/expenses', {
+        const response = await fetch('/expenses', {
             headers: {
                 'Authorization': 'Bearer ' + token
             }
@@ -232,7 +232,7 @@ form.addEventListener('submit', async (e) => {
         if (!title || !amount || !category || !country) throw new Error('All fields are required');
         const token = localStorage.getItem('token');
         if (!token) throw new Error('User not authenticated');
-        const response = await fetch('http://localhost:5000/expenses', {
+        const response = await fetch('/expenses', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -257,7 +257,7 @@ async function deleteExpense(id) {
     try {
         const token = localStorage.getItem('token');
         if (!token) throw new Error('User not authenticated');
-        const response = await fetch(`http://localhost:5000/expenses/${id}`, {
+        const response = await fetch(`/expenses/${id}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': 'Bearer ' + token
@@ -322,7 +322,7 @@ async function logout() {
         const token = localStorage.getItem('token');
         if (token) {
             // Call logout endpoint (optional, but good practice)
-            await fetch('http://localhost:5000/auth/logout', {
+            await fetch('/auth/logout', {
                 method: 'POST',
                 headers: {
                     'Authorization': 'Bearer ' + token
